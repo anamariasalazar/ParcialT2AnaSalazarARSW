@@ -1,5 +1,44 @@
 # ParcialT2AnaSalazarARSW
 
+Parcial seguno tercio de arquitectura de software
+
+## Correr proyecto
+
+Primero clonaremos el repositorio, para eso desde nuestro navegador nos dirigiremos al siguiente link
+
+```sh
+https://github.com/anamariasalazar/ParcialT2AnaSalazarARSW
+```
+
+Para clonar el repositorio debemos de correr el siguiente comando en cmd o en la terminal 
+
+```sh
+https://github.com/anamariasalazar/ParcialT2AnaSalazarARSW
+ ```
+
+## Correr Pruebas
+
+Para correr las pruebas, ejecutamos el siguiente comando
+
+```sh
+$ mvn test
+ ```
+## Extensión
+
+Dado que esta arquitectura fue desarrollada con el principio de inyección de dependencias, resulta muy sencillo hacer uso de las extensiones, ya que si se desea consumir recursos de otras API's solo se deben realizar las respectivas extensiones y luego incluírlas en el sistema.
+
+ 
+## Construido con
+
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [JUnit](https://mvnrepository.com/artifact/junit/junit) - Test framework
+* [VIM](https://www.vim.org/download.php) - Editor de Texto VIM
+
+## Author
+
+ - Ana Maria Salazar Bohorquez 
+
+ 
 ## Preparación para el Parcial
 
 Con el objetivo de preparar el examen final del segundo tercio, por favor siga las siguientes instrucciones.
@@ -69,62 +108,3 @@ Sugerencia realice la implementación de manera incremental. Haga commits regula
 
 > IMPORTANTE! El parcial que no sea subido a tiempo o que no cumpla al pie de la letra con las condiciones de entrega, será calificado con 0.0 sin lugar a reclamaciones, ya que las condiciones están claras.
 
-## Criterios de Evaluación
-
-1.  Cliente escrito en JS asíncrono invocando servicios REST (10%)
-2.  Servidor fachada exponiendo servicios REST (10%)
-3.  Conexión a servicios externos (10%)
-4.  Cliente Java para Tests concurrentes para el servicio en Heroku y para el del proveedor externo(10%)
-5.  Cache tolerante a la concurrencia y una sola instancia para la aplicación (10%)
-6.  Implementa la funcionalidad de los mapas de manera asíncrona (15%)
-7.  Diseño y descripción del diseño son de alta calidad (30%)
-    -   Extensible
-    -   Usa patrones
-    -   Modular
-    -   Organizado
-    -   Javadoc publicado
-    -   Identifica la función de componentes individuales demuestra conocimiento del funcionamiento general de la arquitectura.
-
-## Bonos
-
-1. Si el dato del cache tiene más de 5 min se debe solicitar nuevamente al servidor externo.
-2. Poner un marcador NO solo sobre el país seleccionado, sino sobre todas las provincias infectadas de ese país.
-
-## Ayuda
-
- - Inicie con la aplicación web basada en spring que le propone Heroku en su guía inicial para java. ([https://devcenter.heroku.com/articles/getting-started-with-java](https://devcenter.heroku.com/articles/getting-started-with-java))
-  - Como poner marcadores en un mapa de Google Maps
- [Codepen example](https://codepen.io/SitePoint/pen/YWKLzv?editors=0110)
- - Para invocar un servicios get desde java puede hacerlo de manera fácil como muestra el siguiente código, revise la [clase de pruebas adjunto al examen](coronavirusAPITest/src/test/java/coronavirusAPITest/UnirestTest.java) para más información:
-```java
-    @Test
-	public void shouldReturnAllCases() throws UnirestException {
-		HttpResponse<JsonNode> response = Unirest
-				.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats")
-				.header("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com")
-				.header("x-rapidapi-key", "34f05cff54msh30ba6f36c91c183p166499jsn555917ef62b8")
-				.asJson();
-		
-		assertNotNull(response.getBody());
-		assertEquals((int)HttpStatus.SC_OK,response.getStatus());
-	}
-```
- - Parseo de Json
-```html
-<!DOCTYPE html>
-<html>
-<body>
-
-<h2>Create Object from JSON String</h2>
-
-<p id="demo"></p>
-
-<script>
-var txt = '{"name":"John", "age":30, "city":"New York"}'
-var obj = JSON.parse(txt);
-document.getElementById("demo").innerHTML = "name: " + obj.name + ", age: " + obj.age;
-</script>
-
-</body>
-</html>
-```
