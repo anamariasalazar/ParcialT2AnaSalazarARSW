@@ -12,10 +12,10 @@ import co.edu.eci.arsw.ParcialSegundoCorte.Service.IWeatherService;
 
 @RestController
 @RequestMapping("/coronavirus")
-public class WeatherController {
+public class CoronavirusStatsController {
 
     @Autowired
-    IWeatherService ws;
+    private covidService covidService;
 
     @RequestMapping(value = "/{city}", method = RequestMethod.GET)
     public ResponseEntity<?> getWeatherByCity(@PathVariable(name = "city") String city) {
